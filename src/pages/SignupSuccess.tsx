@@ -37,7 +37,7 @@ const SignupSuccess: React.FC = () => {
         </div>
 
         <img
-            src={require("../images/SignUp5.svg").default}
+            src={require("../images/Signup5.svg").default}
             alt="Login illustration"
             className="w-full max-w-xs md:max-w-sm lg:max-w-md h-auto"
           />

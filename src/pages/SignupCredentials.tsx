@@ -61,7 +61,7 @@ const SignupCredentials: React.FC = () => {
         </div>
         <div className="relative w-full max-w-md flex justify-center">
           <img
-            src={require("../images/SignUp2.svg").default}
+            src={require("../images/Signup2.svg").default}
             alt="Login illustration"
             className="w-full max-w-xs md:max-w-sm lg:max-w-md h-auto"
           />
