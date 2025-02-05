@@ -3,7 +3,6 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Button from "../components/Button"
 import Input from "../components/Input"
-import VepLogo from "../components/VepLogo"
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate()
@@ -26,99 +25,112 @@ const LoginPage: React.FC = () => {
       return
     }
 
-    // Implement login logic here
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long")
+      return
+    }
     console.log("Login attempted with:", { email, password })
-    // For demonstration purposes, we'll just show an error
     setError("Invalid email or password")
   }
 
   return (
-    <div className="min-h-screen grid md:grid-cols-2">
-      <div className="flex items-center justify-center p-8 md:p-12">
-        <img
-          src="../images/Login.svg"
-          alt="Login illustration"
-          className="w-full max-w-md"
-        />
+    <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-2">
+      {/* Left Section */}
+      <div className="flex flex-col justify-center items-center h-screen bg-gray-100 px-6 lg:col-span-1">
+        <div className="space-y-2 mb-8 text-center">
+          <h2 className="text-xl">Hey!</h2>
+          <h1 className="text-3xl font-semibold">Welcome back.</h1>
+        </div>
+        <div className="relative w-full max-w-md flex justify-center">
+          <img
+            src={require("../images/Login.svg").default}
+            alt="Login illustration"
+            className="w-full max-w-xs md:max-w-sm lg:max-w-md h-auto"
+          />
+        </div>
       </div>
-
-      <div className="flex flex-col justify-center p-8 md:p-12">
+  
+      {/* Right Section */}
+      <div className="flex flex-col justify-center items-center h-screen bg-white px-6 lg:col-span-1">
         <div className="w-full max-w-md mx-auto space-y-8">
-          <div className="flex justify-end">
-            <VepLogo />
+          <div className="flex justify-center items-center gap-2">
+            <img
+              src={require("../images/logo.svg").default}
+              alt="Vep Logo"
+              className="h-10 w-10 rounded-full object-cover"
+            />
           </div>
-
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <h1 className="text-2xl font-semibold">Login to your account.</h1>
-              <p className="text-gray-600">Enter your registered email ID and password.</p>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
+        </div>
+  
+        <div className="space-y-6 w-full max-w-md">
+          <div className="space-y-2 text-center">
+            <h1 className="text-2xl font-semibold">Login to your account.</h1>
+            <p className="text-gray-600">Enter your registered email ID and password.</p>
+          </div>
+  
+          <form onSubmit={handleSubmit} className="space-y-6 w-full">
+            <Input
+              type="email"
+              placeholder="Enter email ID"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              aria-label="Email"
+            />
+  
+            <div className="relative">
               <Input
-                type="email"
-                placeholder="Enter email ID"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
-                aria-label="Email"
+                aria-label="Password"
               />
-
-              <div className="relative">
-                <Input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  aria-label="Password"
-                />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+  
+            {error && (
+              <p className="text-red-500 text-sm text-center" role="alert">
+                {error}
+              </p>
+            )}
+  
+            <Button type="submit" className="w-full">LOGIN</Button>
+  
+            <div className="text-center space-y-4">
+              <p className="text-sm">
                 <button
                   type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
-                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  onClick={() => console.log("Forgot Password clicked")}
+                  className="text-[#B71DDE] font-medium"
                 >
-                  {showPassword ? "Hide" : "Show"}
+                  Forgot Password?
                 </button>
-              </div>
-
-              {error && (
-                <p className="text-red-500 text-sm" role="alert">
-                  {error}
-                </p>
-              )}
-
-              <Button type="submit">LOGIN</Button>
-
-              <div className="text-center space-y-4">
-                <p className="text-sm">
-                  <button
-                    type="button"
-                    onClick={() => console.log("Forgot Password clicked")}
-                    className="text-[#B71DDE] hover:underline"
-                  >
-                    Forgot Password?
-                  </button>
-                </p>
-                <p className="text-sm">
-                  Don't have an account?{" "}
-                  <button
-                    type="button"
-                    onClick={() => navigate("/signup")}
-                    className="text-[#B71DDE] font-medium hover:underline"
-                  >
-                    SIGN UP
-                  </button>
-                </p>
-              </div>
-            </form>
-          </div>
+              </p>
+              <p className="text-sm">
+                Don't have an account?{" "}
+                <button
+                  type="button"
+                  onClick={() => navigate("/signup")}
+                  className="text-[#B71DDE] font-medium"
+                >
+                  SIGN UP
+                </button>
+              </p>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default LoginPage
-
+export default LoginPage;

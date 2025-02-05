@@ -1,13 +1,11 @@
-import type React from "react";
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import { SignupContext } from "../App";
-import Button from "../components/Button";
-import Input from "../components/Input";
-import VepLogo from "../components/VepLogo";
-import { useFormValidation } from "../hooks/useFormValidation";
-import ErrorBoundary from '../components/ErrorBoundary'; // Import the ErrorBoundary
+import type React from "react"
+import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
+import { SignupContext } from "../App"
+import Button from "../components/Button"
+import Input from "../components/Input"
+import { useFormValidation } from "../hooks/useFormValidation"
+import ErrorBoundary from '../components/ErrorBoundary'
 
 const SignupBasicDetails: React.FC = () => {
   const navigate = useNavigate();
@@ -43,15 +41,16 @@ const SignupBasicDetails: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Helmet>
-        <title>Basic Details - Vep Digital Payment</title>
-        <meta name="description" content="Provide your basic details for your Vep Digital Payment account." />
-      </Helmet>
-      <div className="min-h-screen p-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-4 mb-8">
-            <VepLogo showBack onBack={() => navigate(-1)} />
+      <div className="flex flex-col justify-center items-center h-screen bg-white px-6 lg:col-span-1">
+        <div className="w-full max-w-md mx-auto space-y-8">
+          <div className="flex justify-center items-center gap-2">
+            <img
+              src={require("../images/logo.svg").default}
+              alt="Vep Logo"
+              className="h-10 w-10 rounded-full object-cover"
+            />
           </div>
+        </div>
 
           <div className="space-y-8">
             <h2 className="text-2xl font-semibold">Basic Details</h2>
@@ -96,9 +95,9 @@ const SignupBasicDetails: React.FC = () => {
                     name="currency"
                     className="w-full p-3 bg-gray-100 rounded-lg"
                     value={values.currency}
-                    onChange={handleChange} // Updated to use the new handler
+                    onChange={handleChange}
                     required
-                    aria-label="Select currency" // Added accessible name
+                    aria-label="Select currency" 
                   >
                     <option value="">Select currency</option>
                     <option value="USD">USD</option>
@@ -213,7 +212,6 @@ const SignupBasicDetails: React.FC = () => {
             </form>
           </div>
         </div>
-      </div>
     </ErrorBoundary>
   );
 };

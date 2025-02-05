@@ -1,11 +1,9 @@
 import type React from "react"
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Helmet } from "react-helmet"
 import { SignupContext } from "../App"
 import Button from "../components/Button"
 import Input from "../components/Input"
-import VepLogo from "../components/VepLogo"
 import { useFormValidation } from "../hooks/useFormValidation"
 
 const SignupCredentials: React.FC = () => {
@@ -54,25 +52,34 @@ const SignupCredentials: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Create Login Credentials - Vep Digital Payment</title>
-        <meta name="description" content="Set up your email and password for your Vep Digital Payment account." />
-      </Helmet>
-      <div className="min-h-screen grid md:grid-cols-2">
-        <div className="flex items-center justify-center p-8 md:p-12">
+     <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-2">
+      {/* Left Section */}
+      <div className="flex flex-col justify-center items-center h-screen bg-gray-100 px-6 lg:col-span-1">
+        <div className="space-y-2 mb-8 text-center">
+          <h2 className="text-xl">Hey!</h2>
+          <h1 className="text-3xl font-semibold">Welcome back.</h1>
+        </div>
+        <div className="relative w-full max-w-md flex justify-center">
           <img
-            src="../images/Signup2.svg"
-            alt="Secure login illustration"
-            className="w-full max-w-md"
+            src={require("../images/SignUp2.svg").default}
+            alt="Login illustration"
+            className="w-full max-w-xs md:max-w-sm lg:max-w-md h-auto"
           />
         </div>
-
-        <div className="flex flex-col justify-center p-8 md:p-12">
-          <div className="w-full max-w-md mx-auto space-y-8">
-            <div className="flex justify-end">
-              <VepLogo showBack onBack={() => navigate(-1)} />
-            </div>
-
+      </div>
+  
+      {/* Right Section */}
+      <div className="flex flex-col justify-center items-center h-screen bg-white px-6 lg:col-span-1">
+        <div className="w-full max-w-md mx-auto space-y-8">
+          <div className="flex justify-center items-center gap-2">
+            <img
+              src={require("../images/logo.svg").default}
+              alt="Vep Logo"
+              className="h-10 w-10 rounded-full object-cover"
+            />
+          </div>
+        </div>
+  
             <div className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-2xl font-semibold">Create new Login credentials.</h2>
@@ -157,7 +164,6 @@ const SignupCredentials: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
     </>
   )
 }
