@@ -3,6 +3,7 @@ import { useState, createContext, Suspense, lazy } from "react"
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import ErrorBoundary from "./components/ErrorBoundary"
+import "./App.css"
 
 const LoginPage = lazy(() => import("./pages/LoginPage"))
 const SignupPhone = lazy(() => import("./pages/SignupPhone"))
