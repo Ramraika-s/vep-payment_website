@@ -1,3 +1,5 @@
+"use client"
+
 import type React from "react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -34,40 +36,40 @@ const LoginPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-2">
+    <div className="flex min-h-screen w-full">
       {/* Left Section */}
-      <div className="flex flex-col justify-center items-center h-screen bg-gray-100 px-6 lg:col-span-1">
+      <div className="flex flex-col justify-center items-center w-1/2 bg-gray-100 px-6">
         <div className="space-y-2 mb-8 text-center">
           <h2 className="text-xl">Hey!</h2>
           <h1 className="text-3xl font-semibold">Welcome back.</h1>
         </div>
         <div className="relative w-full max-w-md flex justify-center">
           <img
-            src={require("../images/Login.svg").default}
+            src={require("../images/Login.svg").default || "/placeholder.svg"}
             alt="Login illustration"
             className="w-full max-w-xs md:max-w-sm lg:max-w-md h-auto"
           />
         </div>
       </div>
-  
+
       {/* Right Section */}
-      <div className="flex flex-col justify-center items-center h-screen bg-white px-6 lg:col-span-1">
+      <div className="flex flex-col justify-center items-center w-1/2 bg-white px-6">
         <div className="w-full max-w-md mx-auto space-y-8">
           <div className="flex justify-center items-center gap-2">
             <img
-              src={require("../images/logo.svg").default}
+              src={require("../images/logo.svg").default || "/placeholder.svg"}
               alt="Vep Logo"
               className="h-10 w-10 rounded-full object-cover"
             />
           </div>
         </div>
-  
+
         <div className="space-y-6 w-full max-w-md">
           <div className="space-y-2 text-center">
             <h1 className="text-2xl font-semibold">Login to your account.</h1>
             <p className="text-gray-600">Enter your registered email ID and password.</p>
           </div>
-  
+
           <form onSubmit={handleSubmit} className="space-y-6 w-full">
             <Input
               type="email"
@@ -77,7 +79,7 @@ const LoginPage: React.FC = () => {
               required
               aria-label="Email"
             />
-  
+
             <div className="relative">
               <Input
                 type={showPassword ? "text" : "password"}
@@ -96,15 +98,17 @@ const LoginPage: React.FC = () => {
                 {showPassword ? "Hide" : "Show"}
               </button>
             </div>
-  
+
             {error && (
               <p className="text-red-500 text-sm text-center" role="alert">
                 {error}
               </p>
             )}
-  
-            <Button type="submit" className="w-full">LOGIN</Button>
-  
+
+            <Button type="submit" className="w-full">
+              LOGIN
+            </Button>
+
             <div className="text-center space-y-4">
               <p className="text-sm">
                 <button
@@ -117,11 +121,7 @@ const LoginPage: React.FC = () => {
               </p>
               <p className="text-sm">
                 Don't have an account?{" "}
-                <button
-                  type="button"
-                  onClick={() => navigate("/signup")}
-                  className="text-[#B71DDE] font-medium"
-                >
+                <button type="button" onClick={() => navigate("/signup")} className="text-[#B71DDE] font-medium">
                   SIGN UP
                 </button>
               </p>
@@ -130,7 +130,8 @@ const LoginPage: React.FC = () => {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default LoginPage;
+export default LoginPage
+
