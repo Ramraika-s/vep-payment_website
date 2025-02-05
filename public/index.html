@@ -4,7 +4,30 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <script>
+      (function() {
+        var themeColor = '#000000';
+        var metaThemeColor = document.querySelector('meta[name=theme-color]');
+        if (!metaThemeColor) {
+          metaThemeColor = document.createElement('meta');
+          metaThemeColor.name = 'theme-color';
+          document.head.appendChild(metaThemeColor);
+        }
+        metaThemeColor.content = themeColor;
+      })();
+    </script>
+    <script>
+      (function() {
+        var themeColor = '#000000';
+        var metaThemeColor = document.querySelector('meta[name=theme-color]');
+        if (!metaThemeColor) {
+          metaThemeColor = document.createElement('meta');
+          metaThemeColor.name = 'theme-color';
+          document.head.appendChild(metaThemeColor);
+        }
+        metaThemeColor.content = themeColor;
+      })();
+    </script>
     <meta
       name="description"
       content="Web site created using create-react-app"
