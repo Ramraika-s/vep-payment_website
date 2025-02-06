@@ -77,7 +77,7 @@ const SignupUsername: React.FC = () => {
               {error && <p className="text-red-500 text-sm">{error}</p>}
 
               <Button type="submit" className="w-auto px-12">
-                  <a href="/signup/success" className="text-[#B71DDE] font-medium hover:underline">
+                  <a href="/signup/success" >
                   PROCEED
                   </a>
                 </Button>

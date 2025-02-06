@@ -2,6 +2,7 @@ import type React from "react"
 import { useEffect, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { SignupContext } from "../App"
+import Button from "../components/Button"
 
 const SignupSuccess: React.FC = () => {
   const navigate = useNavigate()
@@ -31,9 +32,12 @@ const SignupSuccess: React.FC = () => {
         <div className="space-y-4">
           <h1 className="text-3xl font-bold">Account created Successfully!!!</h1>
           <p className="text-gray-600">You can login to your account through the credentials created.</p>
-          <a href="/" className="text-[#B71DDE] font-medium">
-            LOGIN NOW
-          </a>
+          <Button
+                  type="button"
+                  onClick={() => navigate("/")}
+                >
+                  Login Now
+                </Button>
         </div>
 
         <img

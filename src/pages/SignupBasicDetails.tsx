@@ -193,18 +193,18 @@ const SignupBasicDetails: React.FC = () => {
                   <input type="checkbox" className="w-4 h-4 accent-[#B71DDE]" required />
                   <span className="text-sm">
                     I have read and I agree to the{" "}
-                    <button type="button" className="text-[#B71DDE] underline" onClick={() => alert('Terms and Conditions')}>
+                    <Button type="button"  onClick={() => alert('Terms and Conditions')}>
                       Terms and Conditions
-                    </button>
+                    </Button>
                     , and the{" "}
-                    <button type="button" className="text-[#B71DDE] underline" onClick={() => alert('Privacy Policy')}>
+                    <Button type="button"  onClick={() => alert('Privacy Policy')}>
                       Privacy Policy
-                    </button>
+                    </Button>
                   </span>
                 </label>
 
                 <Button type="submit" className="w-auto px-12">
-                  <a href="/signup/business" className="text-[#B71DDE] font-medium hover:underline">
+                  <a href="/signup/business" >
                   NEXT
                   </a>
                 </Button>

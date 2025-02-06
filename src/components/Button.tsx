@@ -6,10 +6,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button: React.FC<ButtonProps> = React.memo(({ children, variant = "primary", className = "", ...props }) => {
-  const baseStyle = "w-full px-4 py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+  const baseStyle = "px-[38px] py-3 rounded-full font-medium transition-colors flex items-center justify-center gap-2"
   const variantStyles = {
-    primary: "bg-[#B71DDE] text-white hover:bg-[#B71DDE]/90",
-    secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200",
+    primary: "bg-[#BF138F] text-white hover:bg-[#BF138F]/90",
+    secondary: "bg-[#BF138F] text-white hover:bg-[#BF138F]/90",
   }
 
   return (
@@ -27,4 +27,6 @@ const Button: React.FC<ButtonProps> = React.memo(({ children, variant = "primary
 Button.displayName = "Button"
 
 export default Button
+
+
 

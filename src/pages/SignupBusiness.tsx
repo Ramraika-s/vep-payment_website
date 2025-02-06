@@ -88,7 +88,7 @@ const SignupBusiness: React.FC = () => {
               {error && <p className="text-red-500 text-sm">{error}</p>}
 
               <Button type="submit" className="w-auto px-12">
-                  <a href="/signup/username" className="text-[#B71DDE] font-medium hover:underline">
+                  <a href="/signup/username" >
                   NEXT
                   </a>
                 </Button>

@@ -156,7 +156,7 @@ const SignupCredentials: React.FC = () => {
                 )}
 
                 <Button type="submit" className="w-auto px-12">
-                  <a href="/signup/details" className="text-[#B71DDE] font-medium hover:underline">
+                  <a href="/signup/details" >
                   NEXT
                   </a>
                 </Button>
